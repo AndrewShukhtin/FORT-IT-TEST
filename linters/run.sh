@@ -13,9 +13,9 @@ if [ "${1}" == "--local" ]; then
 else
 	CPPCHECK="./linters/cppcheck/cppcheck"
 fi
-${CPPCHECK} project --enable=all --error-exitcode=1 -I project/longest_arth_seq --suppress=missingIncludeSystem # --check-config
+${CPPCHECK} project --enable=all --error-exitcode=1 -I project/SimpleDB/* project/SimpleDbCLI/* project/SimpleJsonParser/* --suppress=missingIncludeSystem  --check-config
 
 print_header "RUN cpplint.py"
-python2.7 ./linters/cpplint/cpplint.py --extensions=c,cpp project/longest_arth_seq/* project/longest_arth_seq/*
+python2.7 ./linters/cpplint/cpplint.py --extensions=hpp,cpp project/SimpleDB/* project/SimpleDbCLI/* project/SimpleJsonParser/*
 
 print_header "SUCCESS"
