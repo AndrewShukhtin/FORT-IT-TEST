@@ -1,0 +1,28 @@
+dist:     bionic
+sudo:     required
+
+language: c
+
+os: linux
+
+compiler: gcc
+
+install:
+    - sudo apt-get update
+    - sudo apt-get install clang-format
+    - sudo apt-get install lcov
+    - sudo apt-get install libstdc++6
+    - sudo apt-get install cmake
+    - sudo apt-get install cppcheck
+
+before_script:
+    - ./linters/run.sh --local || travis_terminate 1
+    - mkdir build
+    - cd build
+    - cmake .. || travis_terminate 1
+    - make || travis_terminate 1
+    - export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:.
+    - cd ..
+
+script:
+    - echo "exit" | ./build/simpledb
