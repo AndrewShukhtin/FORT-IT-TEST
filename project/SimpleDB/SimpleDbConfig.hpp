@@ -1,0 +1,6 @@
+#ifndef PROJECT_SIMPLEDB_SIMPLEDBCONFIG_HPP_
+#define PROJECT_SIMPLEDB_SIMPLEDBCONFIG_HPP_
+
+const char kDefaultPathToJsonFile[] = "Database.json";
+
+#endif  // PROJECT_SIMPLEDB_SIMPLEDBCONFIG_HPP_
