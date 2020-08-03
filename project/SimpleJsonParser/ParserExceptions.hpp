@@ -4,6 +4,12 @@
 #include <exception>
 #include <string>
 
+/**
+ * @class ParserExceptionBase
+ * 
+ * Базовый класс исключений парсера.
+ */
+
 class ParserExceptionBase : public std::exception {
  public:
   explicit ParserExceptionBase(std::string msg);
@@ -13,6 +19,13 @@ class ParserExceptionBase : public std::exception {
  protected:
   std::string _msg;
 };
+
+/**
+ * @class InvalidFileContent
+ * 
+ * Исключение связанное плохо сериализованным файлом,
+ * невалинными данными или неправильным форматом.
+ */
 
 class InvalidFileContent : public ParserExceptionBase {
  public:
