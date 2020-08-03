@@ -10,9 +10,12 @@ compiler: gcc
 install:
     - sudo apt-get update
     - sudo apt purge build-essential
-    - sudo apt-get install clang-format
-    - sudo apt-get install lcov
-    - sudo apt-get install libstdc++6
+    - sudo apt install software-properties-common
+    - sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    - sudo apt install gcc-7 g++-7 gcc-8 g++-8 gcc-9 g++-9
+    - sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 90 --slave /usr/bin/g++ g++ /usr/bin/g++-9 --slave /usr/bin/gcov gcov /usr/bin/gcov-9
+    - sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-8 80 --slave /usr/bin/g++ g++ /usr/bin/g++-8 --slave /usr/bin/gcov gcov /usr/bin/gcov-8
+    - sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 70 --slave /usr/bin/g++ g++ /usr/bin/g++-7 --slave /usr/bin/gcov gcov /usr/bin/gcov-7
     - sudo apt-get install cmake
     - sudo apt-get install cppcheck
 
