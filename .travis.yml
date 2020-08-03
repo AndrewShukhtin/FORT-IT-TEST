@@ -9,6 +9,7 @@ compiler: gcc
 
 install:
     - sudo apt-get update
+    - sudo apt purge build-essential
     - sudo apt-get install clang-format
     - sudo apt-get install lcov
     - sudo apt-get install libstdc++6
