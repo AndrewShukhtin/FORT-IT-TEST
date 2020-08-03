@@ -32,7 +32,7 @@ before_script:
     - ./linters/run.sh --local || travis_terminate 1
     - mkdir build
     - cd build
-    - cmake -DCMAKE_C_COMPILER=/usr/bin/gcc -DCMAKE_CXX_COMPILER=/usr/bin/g++ ..
+    - cmake -DCMAKE_C_COMPILER=/usr/bin/gcc-9 -DCMAKE_CXX_COMPILER=/usr/bin/g++-9 ..
     - make || travis_terminate 1
     - export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:.
     - cd ..
