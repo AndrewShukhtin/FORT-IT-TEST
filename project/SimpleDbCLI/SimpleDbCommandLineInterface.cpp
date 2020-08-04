@@ -61,18 +61,21 @@ void SimpleDbCommandLineInterface::_switchToACtion(const std::string& command, s
   if (command == kAddCmd) {
     if (!_dbInterface->AddValue(std::move(value))) {
       std::cout << "Inserted value already exists" << std::endl;
+    } else {
+      std::cout << "Value inserted" <<std::endl;
     }
-    std::cout << "Value inserted" <<std::endl;
   } else if (command == kHasCmd) {
     if (!_dbInterface->HasValue(value)) {
       std::cout << "Value exists" << std::endl;
+    } else {
+      std::cout << "Value does not exist" <<std::endl;
     }
-    std::cout << "Value does not exist" <<std::endl;
   } else if (command == kDeleteCmd) {
     if (!_dbInterface->DeleteValue(value)) {
       std::cout << "Deleted value does not exist" << std::endl;
+    } else {
+      std::cout << "Value successfully deleted" <<std::endl;
     }
-    std::cout << "Value successfully deleted" <<std::endl;
   } else if (command == kListaAllCmd) {
     _listAllValues();
   }
